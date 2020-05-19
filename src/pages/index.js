@@ -11,7 +11,6 @@ export default () => {
   const initialize = (rawData) => {
     const nextQueue = rawData.split(/[,\n]/).map(e=>e.trim())
     setQueue([...shuffle(nextQueue), "The End"])
-
   }
 
   useEffect(() => {
@@ -28,7 +27,7 @@ export default () => {
     <div><button onClick={() => {initialize(rawData); setIndex(0)}}>Start</button></div>
   </div>
 
-  const current = <div style={{padding: "30px", border: "1px solid black"}} onClick={() => setIndex(index + 1)}>
+  const current = <div style={{padding: "30px", border: "1px solid black"}} onClick={() => (index < queue.length - 1) && setIndex(index + 1)}>
     <div>{queue[index]}</div>
   </div>
 
